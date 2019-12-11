@@ -44,7 +44,7 @@ I recommend you look at my other two repositories first
 
 ### Thru CLI
   
-    kubectl create service nodeport nginx --tcp=80:80
+    kubectl create service nodeport nginx --tcp=80:32000
     
 ## Using YAML
 
