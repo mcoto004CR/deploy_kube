@@ -94,3 +94,36 @@ If that didn't work after reboot, modify this file on all nodes
     Uncomment or add the following line: net.ipv4.ip_forward=1
     Reboot
     
+ 
+   
+
+
+## deployment.apps/nginx created
+     $ kubectl create deployment nginx --image=crhostservices/armcusnginx
+    
+    $ kubectl get deployments
+    NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+    nginx   0/1     1            0           16s
+
+    $ kubectl create service nodeport nginx --tcp=80:80
+    service/nginx created
+    
+    $ kubectl get pod
+    NAME                     READY   STATUS    RESTARTS   AGE
+    nginx-65f88748fd-7hb6x   1/1     Running   0          41s
+    
+    $ kubectl describe service nginx
+    Name:                     nginx
+    Namespace:                default
+    Labels:                   app=nginx
+    Annotations:              <none>
+    Selector:                 app=nginx
+    Type:                     NodePort
+    IP:                       10.102.102.220
+    Port:                     80-80  80/TCP
+    TargetPort:               80/TCP
+    NodePort:                 80-80  31681/TCP
+    Endpoints:                10.244.2.8:80
+    Session Affinity:         None
+    External Traffic Policy:  Cluster
+    Events:                   <none>
