@@ -127,3 +127,10 @@ If that didn't work after reboot, modify this file on all nodes
     Session Affinity:         None
     External Traffic Policy:  Cluster
     Events:                   <none>
+
+
+## Delete pods
+    root@k3master:/home/pi# sudo kubectl delete --all pods
+    pod "mynginx-7f79686c94-s7w4w" deleted
+    pod "mynginx-7f79686c94-2dw9t" deleted
+    pod "mynginx-7f79686c94-4c26p" deleted
